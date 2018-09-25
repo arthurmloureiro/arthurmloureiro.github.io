@@ -2675,8 +2675,8 @@ input, select, textarea {
 		-webkit-justify-content: space-between;
 		-ms-justify-content: space-between;
 		justify-content: space-between;
-		background: #4acaa8;
-		color: #d2f2e9;
+		background: #1E1F1E; /* this is the header colour:  #4acaa8; */
+		color: #060706; /* this is the secondary colour:  #d2f2e9; */
 		height: 100%;
 		overflow-y: auto;
 		position: fixed;
@@ -2695,7 +2695,7 @@ input, select, textarea {
 			}
 
 		#header header p {
-			color: #b7eadc;
+			color: #9B9B9B;
 		}
 
 		#header a {
