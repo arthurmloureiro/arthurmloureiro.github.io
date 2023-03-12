@@ -392,6 +392,7 @@ input, select, textarea {
 		height: auto;
 	  }
 	  
+	  
 
 	/* #overlay {
 		-moz-animation: overlay 1.5s 1.5s forwards;
@@ -411,6 +412,7 @@ input, select, textarea {
 		width: 100%;
 	} */
 
+
 	#footer {
 		display: flex;
 		justify-content: center;
@@ -425,10 +427,37 @@ input, select, textarea {
 	.image-credit {
 		font-size: 0.7em;
 	}
-	
+
+
+	.button {
+		display: inline-block;
+		background-color: #363636;
+		color: #fff;
+		border:  2px solid #ccc;
+		padding: 10px 20px;
+		border-radius: 20px;
+		font-size: 16px;
+		text-align: center;
+		text-decoration: none;
+		cursor: pointer;
+		transition: background-color 0.3s ease;
+	  }
+	  
+	  .button:hover {
+		background-color: rgba(255, 255, 255, 0.4);
+  		color: #363636;
+	  }
+	  
+	  .button i {
+		margin-right: 10px;
+	  }
 
 /* Main */
 
+a[data-hover-text]:hover::before {
+	content: attr(data-hover-text);
+  }
+  
 	#main {
 		height: 100%;
 		left: 0;
@@ -446,6 +475,11 @@ input, select, textarea {
 			vertical-align: middle;
 			width: 1px;
 		}
+
+		.small-font {
+			font-size: 0.8em;
+		  }
+		  
 
 /* Header */
 
