@@ -227,8 +227,14 @@ input, select, textarea {
 		transform: translate3d(0,0,0);
 	/* Set your background with this */
 
-		background: #1e2020 url("images/bg.jpg") bottom left;
-		background-repeat: repeat-x;
+		/* background: #1e2020 url("images/bg.jpg") bottom left  / 100% 100%;
+		background-size: cover;
+		background-repeat: repeat-x; */
+		    /* Set your background with this */
+	background: #000000 url("images/bg.jpg");
+    background-size: cover, auto;
+    background-repeat: repeat-x repeat-y;
+    background-position: center;
 		height: 100%;
 		left: 0;
 		opacity: 1;
@@ -353,7 +359,7 @@ input, select, textarea {
 		/* padding: 20px; */
 		text-align: center;
 		background-color: rgba(255, 255, 255, 0.2); /* Set the background color with some opacity */
-		max-width: 600px; /* Set the maximum width of the box */
+		max-width: 700px; /* Set the maximum width of the box */
 		margin: 0 auto; /* Center the box horizontally */
 		padding: 2em; /* Add some padding to the content */
 		border-radius: 20px; /* Set the border radius to make the corners round */
@@ -904,6 +910,7 @@ a[data-hover-text]:hover::before {
 			background-size: auto, cover;
 			width: 4500px;
 		} }
+
 
 /* Normal */
 
