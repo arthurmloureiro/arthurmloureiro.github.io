@@ -235,6 +235,7 @@ input, select, textarea {
     background-size: cover, auto;
     background-repeat: repeat-x repeat-y;
     background-position: center;
+	background-attachment: fixed;
 		height: 100%;
 		left: 0;
 		opacity: 1;
