@@ -1,6 +1,8 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,900");
 @import url("https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap");
 @import url("fontawesome-all.min.css");
+@import url("academicons.min.css");
+
 
 /*
 	Aerial by HTML5 UP
@@ -1184,3 +1186,24 @@ a[data-hover-text]:hover::before {
 		#header nav {
 			padding: 0 1em;
 		} }
+.grid-container {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr); /* Creates 3 columns */
+	grid-template-rows: repeat(2, auto); /* Creates 2 rows, auto-adjusting to content height */
+	gap: 5px; /* Reduces space between grid items */
+	justify-content: center; /* Centers grid items horizontally */
+	align-items: center; /* Centers grid items vertically */
+	margin: auto; /* Centers the grid container if it doesn't take up the full parent width */
+	width: fit-content; /* Adjusts the width of the grid container to fit its content */
+}
+
+.grid-container ul {
+	list-style: none; /* Removes default list styling */
+	padding: 0; /* Removes default padding */
+	margin: 0; /* Removes default margin */
+	display: contents; /* Makes <ul> not affect the grid layout */
+}
+
+.grid-container li {
+	/* Optional: Style as needed */
+}
