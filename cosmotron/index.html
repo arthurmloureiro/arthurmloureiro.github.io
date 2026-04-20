@@ -163,6 +163,20 @@ document.addEventListener('DOMContentLoaded', async function() {
     if (window.Babel && typeof window.Babel.transformScriptTags === 'function') {
       window.Babel.transformScriptTags();
     }
+
+    window.addEventListener('load', function() {
+      if (document.getElementById('__theme_toggle')) return;
+      var btn = document.createElement('button');
+      btn.id = '__theme_toggle';
+      btn.title = 'Switch to light mode';
+      btn.setAttribute('aria-label', 'Switch to light mode');
+      btn.style.cssText = 'position:fixed;bottom:24px;right:24px;width:56px;height:56px;border-radius:50%;border:none;background:#2a2a35;box-shadow:0 4px 12px rgba(0,0,0,0.45),0 2px 6px rgba(0,0,0,0.45);cursor:pointer;z-index:999999;display:flex;align-items:center;justify-content:center;padding:0;outline:none;transition:transform 0.15s ease,box-shadow 0.15s ease;';
+      btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 100 100"><defs><clipPath id="lh"><rect x="0" y="0" width="50" height="100"/></clipPath><clipPath id="rh"><rect x="50" y="0" width="50" height="100"/></clipPath></defs><circle cx="50" cy="50" r="27" fill="none" stroke="white" stroke-width="5"/><circle cx="50" cy="50" r="25" fill="white" clip-path="url(#lh)"/><path d="M50,25 A25,25 0 0,1 50,75 A17,17 0 0,0 50,25 Z" fill="white" clip-path="url(#rh)"/><g stroke="white" stroke-width="5" stroke-linecap="round"><line x1="50" y1="4" x2="50" y2="14"/><line x1="50" y1="86" x2="50" y2="96"/><line x1="4" y1="50" x2="14" y2="50"/><line x1="17" y1="17" x2="24" y2="24"/><line x1="76" y1="24" x2="83" y2="17"/><line x1="17" y1="83" x2="24" y2="76"/></g></svg>';
+      btn.addEventListener('mouseover', function(){ btn.style.transform='scale(1.1)'; btn.style.boxShadow='0 8px 20px rgba(0,0,0,0.45),0 4px 8px rgba(0,0,0,0.45)'; });
+      btn.addEventListener('mouseout', function(){ btn.style.transform=''; btn.style.boxShadow='0 4px 12px rgba(0,0,0,0.45),0 2px 6px rgba(0,0,0,0.45)'; });
+      btn.addEventListener('click', function(){ location.href = './light.html' + location.hash; });
+      document.body.appendChild(btn);
+    });
   } catch (err) {
     setStatus('Error unpacking: ' + err.message);
     console.error('Bundle unpack error:', err);
