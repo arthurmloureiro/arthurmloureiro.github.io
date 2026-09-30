@@ -1,68 +1,134 @@
-<!DOCTYPE HTML>
-<!--
-	Aerial by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<link rel="shortcut icon" type="image/x-icon" href="assets/css/images/galaxy.png">
-		<title>Arthur Loureiro</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-	</head>
-	<body class="is-preload">
-		<div id="wrapper">
-			<div id="bg"></div>
-			<div id="overlay"></div>
-			<div id="main">
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Arthur Loureiro</title>
+<link rel="shortcut icon" type="image/x-icon" href="assets/css/images/galaxy.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+<style>
+:root{
+  --sky:#0D1117;
+  --glow-violet:rgba(120,90,220,.20); --glow-blue:rgba(60,140,200,.10);
+  --ink:#E6EDF3; --ink-soft:#8B949E;
+  --panel:rgba(255,255,255,.06); --edge:rgba(255,255,255,.12);
+  --line:rgba(255,255,255,.08); --chip:rgba(255,255,255,.06);
+  --accent:#80B7D0; --on-accent:#0D1117;
+  --rim:inset 0 1px 0 rgba(255,255,255,.06); --blur:16px;
+  --r-card:24px; --r-btn:8px;
+  --f-ui:Inter,system-ui,sans-serif;
+  --f-display:"Inter Tight",Inter,sans-serif;
+  --f-mono:"Geist Mono",ui-monospace,monospace;
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;color:var(--ink);background-color:var(--sky);
+  font:400 15px/1.5 var(--f-ui);-webkit-font-smoothing:antialiased;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  min-height:100vh;
+  padding:calc(3rem + env(safe-area-inset-top,0px)) 16px calc(1.5rem + env(safe-area-inset-bottom,0px));
+}
 
-				<!-- Header -->
-				<header id="header">
-				<div class="header-container">
-					<div class="image round">
-						<img src="assets/css/images/profile.jpg" alt="Profile Picture" />
-					</div>
-					<h1>Arthur Loureiro</h1>
-					<p> Cosmology & Astrostatistics</p>
-					<p>The Oskar Klein Centre &nbsp;&bull;&nbsp; Stockholm University</p>
-					<p><span class="small-font">arthur.loureiro [at] fysik.su.se</span></p>
-					<p>					</p>
-					<a href="Arthur_Loureiro_CV.pdf" class="button"><i class="fas fa-file-pdf"></i>My CV</a>
-					<nav>
-					<!-- <div class="grid-container"> -->
-					<ul>
-						<li><a href="https://github.com/arthurmloureiro" class="icon brands fa-github" title="Github"><span class="label">Github</span></a></li>
-						<li><a href="https://orcid.org/0000-0002-4371-0876" class="icon brands fa-orcid" title="OrcID"><span class="label">Email</span></a></li>
-						<li><a href="https://ui.adsabs.harvard.edu/search/q=orcid%3A0000-0002-4371-0876&sort=date%20desc%2C%20bibcode%20desc&p_=0" class="ai ai-ads" title="NASA/ADS Papers"><span class="label">Dribbble</span></a></li>
-						<li><a href="https://arxiv.org/search/astro-ph?searchtype=author&query=Loureiro,+A" class="ai ai-arxiv" title="ArXiv"><span class="label">CV</span></a></li>
-						<li><a href="https://medium.com/@cosmonist" class="icon brands fa-medium" title="Medium"><span class="label">Medium</span></a></li>
-						<!-- <li><a href="https://twitter.com/cosmonist" class="icon brands fa-twitter" title="Twitter"><span class="label">Twitter</span></a></li> -->
-					</ul>
-					<!-- </div> -->
-					</nav>
-										<!-- <a href="Arthur_Loureiro_CV.pdf" class="button"><i class="fas fa-file-pdf"></i> My CV</a> -->
-				</div>
-				</header>
-				<!-- Footer
-					<footer id="footer">
-						<span class="copyright">&copy; Untitled. Design: <a href="http://html5up.net">HTML5 UP</a>.</span>
-					</footer> -->
-				<!-- Footer -->
-				<footer id="footer">
-					<span class="design-credit">&copy; Arthur Loureiro &nbsp;&bull;&nbsp; Design: <a href="http://html5up.net">HTML5 UP</a>  & ChatGPT &nbsp;&bull;&nbsp;  Image Credit: NASA/STScI/Harry Teplitz (Caltech/IPAC) </span>
-				</footer>
+/* Background: Hubble image, slow horizontal drift */
+#bg{
+  position:fixed;top:0;left:0;height:100%;width:6750px;z-index:-1;
+  background:#000 url("assets/css/images/bg.jpg") center / auto 100% repeat-x;
+  animation:drift 60s linear infinite;will-change:transform;
+}
+@keyframes drift{from{transform:translate3d(0,0,0)}to{transform:translate3d(-2250px,0,0)}}
+@media (prefers-reduced-motion:reduce){#bg{animation:none;width:100%;background-size:cover}}
 
+.card{
+  background:var(--panel);border:1px solid var(--edge);border-radius:var(--r-card);box-shadow:var(--rim);
+  -webkit-backdrop-filter:blur(var(--blur));backdrop-filter:blur(var(--blur));
+}
+.panel{width:100%;max-width:640px;padding:48px 48px 40px;text-align:center;margin:auto 0}
 
-			</div>
-		</div>
-		<script>
-			window.onload = function() { document.body.classList.remove('is-preload'); }
-			window.ontouchmove = function() { return false; }
-			window.onorientationchange = function() { document.body.scrollTop = 0; }
-		</script>
-	</body>
+.portrait{
+  display:block;width:176px;height:176px;margin:0 auto 28px;border-radius:50%;
+  object-fit:cover;padding:6px;background:var(--chip);background-clip:padding-box;
+  border:2px solid rgba(230,237,243,.45);box-shadow:0 0 0 1px var(--edge),var(--rim);
+}
+.eyebrow{font:500 14px var(--f-mono);letter-spacing:.07em;text-transform:uppercase;color:var(--accent);margin:0 0 12px;text-wrap:balance}
+.eyebrow span{white-space:nowrap}
+h1{font:600 56px/1.04 var(--f-display);letter-spacing:-.035em;margin:0 0 14px;text-wrap:balance}
+.role{margin:0 0 6px;font-size:20px}
+.email{margin:0;color:var(--ink-soft);font-size:16px}
+
+.actions{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:12px;
+  margin:28px 0 0;padding-top:28px;border-top:1px solid var(--line);
+}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:12px 24px;
+  font:500 17px/1.2 var(--f-ui);text-decoration:none;border-radius:var(--r-btn);
+  border:1px solid var(--edge);background:var(--chip);color:var(--ink);
+  transition:border-color .15s ease,background-color .15s ease;
+}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.actions .btn{width:176px;justify-content:center}
+.btn i{width:1.25em;text-align:center}
+
+.links{list-style:none;padding:0;margin:20px 0 0;display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+.links a{
+  display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;
+  border-radius:var(--r-btn);border:1px solid var(--edge);background:var(--chip);
+  color:var(--ink-soft);font-size:23px;text-decoration:none;
+  transition:color .15s ease,border-color .15s ease;
+}
+.links a:hover{color:var(--accent);border-color:var(--accent)}
+
+a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+footer{
+  margin-top:28px;color:var(--ink-soft);font-size:13px;text-align:center;max-width:680px;
+  text-shadow:0 1px 2px rgba(0,0,0,.6);
+}
+
+@media (max-width:520px){
+  body{padding-top:calc(2.5rem + env(safe-area-inset-top,0px))}
+  .panel{padding:32px 20px 28px}
+  h1{font-size:38px}
+  .role{font-size:17px}
+  .portrait{width:136px;height:136px}
+  .btn{padding:11px 18px;font-size:16px}
+  .actions .btn{width:150px}
+  .links a{width:46px;height:46px;font-size:20px}
+}
+</style>
+</head>
+<body>
+  <div id="bg" aria-hidden="true"></div>
+
+  <main class="card panel">
+    <img class="portrait" src="assets/css/images/profile.jpg" alt="Portrait of Arthur Loureiro">
+    <p class="eyebrow"><span>The Oskar Klein Centre ·</span> <span>Stockholm University</span></p>
+    <h1>Arthur Loureiro</h1>
+    <p class="role">Cosmology &amp; Astrostatistics</p>
+    <p class="email">arthur.loureiro [at] fysik.su.se</p>
+
+    <div class="actions">
+      <a class="btn" href="Arthur_Loureiro_CV.pdf"><i class="fas fa-file-pdf" aria-hidden="true"></i>My CV</a>
+      <a class="btn" href="lectures/"><i class="fas fa-chalkboard-teacher" aria-hidden="true"></i>Lectures</a>
+    </div>
+
+    <nav aria-label="Profiles">
+      <ul class="links">
+        <li><a href="https://github.com/arthurmloureiro" title="GitHub" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a></li>
+        <li><a href="https://orcid.org/0000-0002-4371-0876" title="ORCID" aria-label="ORCID"><i class="fab fa-orcid" aria-hidden="true"></i></a></li>
+        <li><a href="https://ui.adsabs.harvard.edu/search/q=orcid%3A0000-0002-4371-0876&amp;sort=date%20desc%2C%20bibcode%20desc&amp;p_=0" title="NASA/ADS papers" aria-label="NASA/ADS papers"><i class="ai ai-ads" aria-hidden="true"></i></a></li>
+        <li><a href="https://arxiv.org/search/astro-ph?searchtype=author&amp;query=Loureiro,+A" title="arXiv" aria-label="arXiv"><i class="ai ai-arxiv" aria-hidden="true"></i></a></li>
+        <li><a href="https://medium.com/@cosmonist" title="Medium" aria-label="Medium"><i class="fab fa-medium" aria-hidden="true"></i></a></li>
+      </ul>
+    </nav>
+  </main>
+
+  <footer>&copy; Arthur Loureiro · Image credit: NASA/STScI/Harry Teplitz (Caltech/IPAC)</footer>
+</body>
 </html>
