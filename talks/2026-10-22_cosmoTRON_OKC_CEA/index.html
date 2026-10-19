@@ -242,7 +242,7 @@ body{margin:0;background:var(--chrome);color:var(--ink);overflow:hidden;font-fam
 </div>
 <p style="font-size:34px;line-height:1.4">Every hand-off between these teams is a config file, a file format, and a telecon.</p>
 <p style="position:absolute;left:128px;bottom:64px;width:1664px;font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;color:var(--muted)">cosmoTRON · OKC C&amp;EA WG</p>
-<aside>[Edit to taste.] In DES, KiDS, HSC and now DESC, these are separate working groups with their own pipelines. The science is hard for good reasons, but a lot of the calendar time goes into the hand-offs: re-running a stage because an upstream product changed, re-configuring, re-validating, and agreeing.</aside>
+<aside>In DES, KiDS, HSC and now DESC, these are separate working groups with their own pipelines. The science is hard for good reasons, but a lot of the calendar time goes into the hand-offs: re-running a stage because an upstream product changed, re-configuring, re-validating, and agreeing.</aside>
 </section>
 <section id="timeline" style="background:var(--s0);color:var(--ink);font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
 <svg aria-label="Timeline from the last data taken to the flagship cosmology paper for DES Y1, Y3, Y6 and KiDS-450, KiDS-1000, KiDS-Legacy" style="position:absolute;left:0;top:0;width:1920px;height:1080px" width="1920" height="1080" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
@@ -367,7 +367,7 @@ body{margin:0;background:var(--chrome);color:var(--ink);overflow:hidden;font-fam
 </div>
 </div>
 <p style="position:absolute;left:128px;bottom:64px;width:1664px;font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;color:var(--muted)">cosmoTRON · OKC C&amp;EA WG</p>
-<aside>A multi-agent system splits the job the way a collaboration does: a planner, a data person, someone who runs the measurement, someone who checks systematics, a reviewer. Each one sees only what it needs. That is what makes it work on a local model rather than the biggest model in the cloud. [Edit to taste.]</aside>
+<aside>A multi-agent system splits the job the way a collaboration does: a planner, a data person, someone who runs the measurement, someone who checks systematics, a reviewer. Each one sees only what it needs. That is what makes it work on a local model rather than the biggest model in the cloud.</aside>
 </section>
 <section id="f1" style="background:var(--s0);color:var(--ink);font-family:'IBM Plex Sans', Arial, sans-serif;padding:96px 128px;display:flex;flex-direction:column;gap:12px">
 <p style="font-family:Orbitron, 'Arial Black', sans-serif;font-size:24px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--amber)">The idea · click to build</p>
@@ -423,7 +423,7 @@ body{margin:0;background:var(--chrome);color:var(--ink);overflow:hidden;font-fam
 </div>
 <p style="font-size:32px;line-height:1.4">The goal: a full analysis driven from <b>workstation-class hardware</b>, not a frontier cloud model.</p>
 <p style="position:absolute;left:128px;bottom:64px;width:1664px;font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;color:var(--muted)">cosmoTRON · OKC C&amp;EA WG</p>
-<aside>Why insist on open weights served locally? Reproducibility: a hosted model can be updated or retired at any time, a downloaded one cannot. Data: collaboration data stays on our hardware. Cost: repeating runs is free, which is what you need to measure run-to-run reproducibility. Independence from any single vendor. Frontier cloud models work too (Claude Code is supported), but they are not the target. [Edit to taste.]</aside>
+<aside>Why insist on open weights served locally? Reproducibility: a hosted model can be updated or retired at any time, a downloaded one cannot. Data: collaboration data stays on our hardware. Cost: repeating runs is free, which is what you need to measure run-to-run reproducibility. Independence from any single vendor. Frontier cloud models work too (Claude Code is supported), but they are not the target.</aside>
 </section>
 <section id="engine" style="background:var(--s0);color:var(--ink);font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
 <div style="display:flex;flex-direction:column;gap:12px">
@@ -1178,7 +1178,7 @@ requestAnimationFrame(f);
 <div style="flex:1;display:flex;flex-direction:column;gap:8px;background:color-mix(in srgb, var(--ok) 10%, transparent);border:2px dashed color-mix(in srgb, var(--ok) 75%, transparent);border-radius:8px;padding:24px">
 <p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;color:var(--amber)">2</p>
 <p style="font-size:26px;line-height:1.3;font-weight:600">Dispatch to HPC</p>
-<p style="font-size:24px;line-height:1.3;color:var(--muted)">SLURM job on [cluster]</p>
+<p style="font-size:24px;line-height:1.3;color:var(--muted)">SLURM job</p>
 </div>
 <p style="font-size:32px;color:var(--muted);align-self:center">→</p>
 <div style="flex:1;display:flex;flex-direction:column;gap:8px;background:var(--s1);border:1px solid var(--line-strong);border-radius:8px;padding:24px">
@@ -1208,7 +1208,7 @@ requestAnimationFrame(f);
 </div>
 <img src="img/ntfy.png" loading="lazy" alt="Phone notifications from ntfy.sh: a cosmoTRON test message and a needs_agent alert for a workspace session" style="width:480px;height:263px;object-fit:contain;border-radius:0px">
 </div>
-<aside>Why this matters: MCP tool calls have a hard timeout of about 60 seconds, so anything heavy (map-making on a big catalogue, covariances, MCMC) cannot run inside a tool call. cosmoTRON dispatches those steps as SLURM jobs on an HPC cluster [name the cluster], and the session can detach so you can close the laptop. When the job finishes, or a step needs an agent or a human decision, an ntfy.sh push notification arrives on your phone; you reattach with cosmotron-session and carry on. Still under testing.</aside>
+<aside>Why this matters: MCP tool calls have a hard timeout of about 60 seconds, so anything heavy (map-making on a big catalogue, covariances, MCMC) cannot run inside a tool call. cosmoTRON dispatches those steps as SLURM jobs on an HPC cluster, and the session can detach so you can close the laptop. When the job finishes, or a step needs an agent or a human decision, an ntfy.sh push notification arrives on your phone; you reattach with cosmotron-session and carry on. Still under testing.</aside>
 </section>
 <section id="updates" style="background:var(--s0);color:var(--ink);font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
 <div style="display:flex;flex-direction:column;gap:12px">
@@ -1242,7 +1242,7 @@ requestAnimationFrame(f);
 </div>
 </div>
 <p style="position:absolute;left:128px;bottom:64px;width:1664px;font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;color:var(--muted)">cosmoTRON · OKC C&amp;EA WG</p>
-<aside>Where things stand. The HPC hand-over, detached sessions and notifications were on the previous slide; the rest is ongoing development. [Check the status labels.]</aside>
+<aside>Where things stand. The HPC hand-over, detached sessions and notifications were on the previous slide; the rest is ongoing development.</aside>
 </section>
 <section id="missing" style="background:var(--s0);color:var(--ink);font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
 <div style="display:flex;flex-direction:column;gap:12px">
@@ -1291,7 +1291,7 @@ requestAnimationFrame(f);
 </div>
 <p style="font-size:32px;line-height:1.4">The tools layer is the bottleneck, and it is the easy part to extend. <span style="color:var(--amber)">Got a code you want wrapped?</span></p>
 <p style="position:absolute;left:128px;bottom:64px;width:1664px;font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;color:var(--muted)">cosmoTRON · OKC C&amp;EA WG</p>
-<aside>Pitch to the OKC group. Forecast mode is already in the DESC plans, via Augur. For cross-correlations, the agent architecture does not care what the spectra are: any spin-0 or spin-2 field on the sphere goes through the same power-spectrum code, so a CMB lensing map, an ISW template or a void catalogue is mostly a new ingest and theory tool. [Add concrete OKC projects/people here.]</aside>
+<aside>Pitch to the OKC group. Forecast mode is already in the DESC plans, via Augur. For cross-correlations, the agent architecture does not care what the spectra are: any spin-0 or spin-2 field on the sphere goes through the same power-spectrum code, so a CMB lensing map, an ISW template or a void catalogue is mostly a new ingest and theory tool.</aside>
 </section>
 <section id="discussion" style="background:var(--s0);color:var(--ink);font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
 <div style="display:flex;flex-direction:column;gap:12px">
@@ -1518,7 +1518,7 @@ requestAnimationFrame(f);
   <span id="count">1 / 1</span>
   <button id="next" aria-label="Next slide">›</button>
   <span id="sec"></span>
-  <button id="notesBtn" aria-pressed="false" title="Speaker notes (N)">N<span class="lbl">otes</span></button>
+  <button id="notesBtn" aria-pressed="false" title="Speaker notes (N)"><span>N<span class="lbl">otes</span></span></button>
   <button id="fsBtn" title="Full screen (F)" aria-label="Full screen">⛶</button>
   <button id="theme" title="Switch theme (T)" aria-label="Switch to light mode"></button>
 </nav>
