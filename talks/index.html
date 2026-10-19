@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<script>
+(function(){
+  var mq = window.matchMedia('(prefers-color-scheme: light)');
+  document.documentElement.dataset.theme = mq.matches ? 'light' : 'dark';
+})();
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Talks · Arthur Loureiro</title>
+<link rel="shortcut icon" type="image/x-icon" href="../assets/css/images/galaxy.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sky:#0D1117;
+  --glow-violet:rgba(120,90,220,.20); --glow-blue:rgba(60,140,200,.10);
+  --ink:#E6EDF3; --ink-soft:#8B949E;
+  --panel:rgba(255,255,255,.06); --edge:rgba(255,255,255,.12);
+  --line:rgba(255,255,255,.08); --chip:rgba(255,255,255,.06);
+  --accent:#80B7D0; --on-accent:#0D1117;
+  --rim:inset 0 1px 0 rgba(255,255,255,.06); --blur:16px;
+  --r-btn:8px; --r-card:24px;
+  --f-ui:Inter,system-ui,sans-serif;
+  --f-display:"Inter Tight",Inter,sans-serif;
+  --f-mono:"Geist Mono",ui-monospace,monospace;
+  color-scheme:dark;
+}
+:root[data-theme="light"]{
+  --sky:#F6F5F0;
+  --glow-violet:rgba(37,107,138,.05); --glow-blue:rgba(37,107,138,0);
+  --ink:#141A23; --ink-soft:#4F5B69;
+  --panel:rgba(255,255,255,.92); --edge:#CBCFD3;
+  --line:#E2E3E0; --chip:rgba(20,26,35,.045);
+  --accent:#256B8A; --on-accent:#FFFFFF;
+  --rim:0 2px 10px rgba(20,26,35,.06); --blur:6px;
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{min-height:100%}
+body{
+  margin:0;color:var(--ink);
+  background:
+    radial-gradient(60% 55% at 62% 40%,var(--glow-violet),transparent 70%),
+    radial-gradient(40% 40% at 20% 90%,var(--glow-blue),transparent 70%),
+    var(--sky);
+  background-attachment:fixed;
+  font:400 15px/1.55 var(--f-ui);-webkit-font-smoothing:antialiased;
+  display:flex;flex-direction:column;align-items:center;min-height:100vh;
+  padding:calc(3rem + env(safe-area-inset-top,0px)) 16px calc(1.5rem + env(safe-area-inset-bottom,0px));
+}
+#sky{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+
+.card{
+  background:var(--panel);border:1px solid var(--edge);border-radius:var(--r-card);box-shadow:var(--rim);
+  -webkit-backdrop-filter:blur(var(--blur));backdrop-filter:blur(var(--blur));
+}
+.panel{width:100%;max-width:640px;padding:28px 32px 32px;margin:auto 0}
+
+.back{
+  display:inline-flex;align-items:center;gap:6px;margin:0 0 20px;
+  font:500 13px var(--f-ui);color:var(--ink-soft);text-decoration:none;border-radius:var(--r-btn);
+}
+.back:hover{color:var(--accent)}
+.eyebrow{font:500 12px var(--f-mono);letter-spacing:.07em;text-transform:uppercase;color:var(--accent);margin:0 0 10px}
+h1{font:600 40px/1.05 var(--f-display);letter-spacing:-.035em;margin:0 0 10px;text-wrap:balance}
+.who{margin:0 0 4px;font-weight:500}
+.desc{margin:0;color:var(--ink-soft)}
+
+.talks{list-style:none;margin:24px 0 0;padding:0;border-top:1px solid var(--line)}
+.talks li{border-bottom:1px solid var(--line)}
+.talks a{
+  display:block;padding:12px 0;font:400 15px/1.4 var(--f-mono);color:var(--ink);
+  text-decoration:none;overflow-wrap:anywhere;transition:color .15s ease;
+}
+.talks a:hover{color:var(--accent)}
+
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+footer{margin-top:28px;color:var(--ink-soft);font-size:13px;text-align:center}
+
+#theme{
+  position:fixed;left:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:11;
+  width:36px;height:36px;display:grid;place-items:center;padding:0;cursor:pointer;
+  color:var(--ink);border-radius:var(--r-btn);
+}
+#theme:hover{border-color:var(--accent);color:var(--accent)}
+#theme svg{width:18px;height:18px}
+:root[data-theme="dark"] .moon,:root[data-theme="light"] .sun{display:none}
+
+@media (max-width:520px){
+  body{padding-top:calc(2.5rem + env(safe-area-inset-top,0px))}
+  .panel{padding:20px 20px 24px}
+  h1{font-size:30px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+  <canvas id="sky" aria-hidden="true"></canvas>
+
+  <main class="card panel">
+    <a class="back" href="../">&larr; Home</a>
+    <p class="eyebrow">Talks · Stockholm University</p>
+    <h1>Talks</h1>
+    <p class="who">Arthur Loureiro</p>
+    <p class="desc">Slides for seminars and talks, built as web pages.</p>
+
+    <!-- Newest first: add new talks at the top. Each talk lives in its own folder: talks/<YYYY-MM-DD_name>/index.html -->
+    <ul class="talks">
+      <li><a href="2026-10-22_cosmoTRON_OKC_CEA/">2026-10-22 cosmoTRON OKC CEA</a></li>
+      <li><a href="2026-04-20_cosmoTRON_first_talk/">2026-04-20 cosmoTRON first talk</a></li>
+    </ul>
+  </main>
+
+  <footer>&copy; Arthur Loureiro</footer>
+
+  <button id="theme" class="card" type="button" aria-label="Switch colour theme" title="Switch theme (T)">
+    <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+  </button>
+
+<script>
+(function(){
+  var root = document.documentElement;
+  var mq = window.matchMedia('(prefers-color-scheme: light)');
+  var chosen = false;
+  var canvas = document.getElementById('sky');
+  var ctx = canvas.getContext('2d');
+  var stars = [];
+
+  function rand(seed){ return function(){ seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; }; }
+
+  function build(w, h){
+    var r = rand(42), n = Math.round(w * h / 1180 / 700 * 140);
+    stars = [];
+    for (var i = 0; i < n; i++) stars.push({x: r() * w, y: r() * h, s: r(), a: r()});
+  }
+
+  function draw(){
+    var dpr = window.devicePixelRatio || 1, w = innerWidth, h = innerHeight;
+    canvas.width = w * dpr; canvas.height = h * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, w, h);
+    if (!stars.length || stars.w !== w || stars.h !== h) { build(w, h); stars.w = w; stars.h = h; }
+    var light = root.dataset.theme === 'light';
+    var ink = getComputedStyle(root).getPropertyValue('--ink').trim();
+    var accent = getComputedStyle(root).getPropertyValue('--accent').trim();
+
+    if (light) {
+      // Star-atlas grid: declination circles around a pole above the page, meridians, dashed equator
+      var cx = w * .62, cy = -.9 * h;
+      ctx.strokeStyle = ink; ctx.globalAlpha = .08; ctx.lineWidth = 1;
+      for (var k = 1.0; k <= 3.2 + 1e-9; k += .21) { ctx.beginPath(); ctx.arc(cx, cy, k * h, 0, Math.PI * 2); ctx.stroke(); }
+      for (var d = -60; d <= 60; d += 10) {
+        var t = Math.PI / 2 + d * Math.PI / 180;
+        ctx.beginPath(); ctx.moveTo(cx + Math.cos(t) * h, cy + Math.sin(t) * h);
+        ctx.lineTo(cx + Math.cos(t) * 3.4 * h, cy + Math.sin(t) * 3.4 * h); ctx.stroke();
+      }
+      ctx.strokeStyle = accent; ctx.globalAlpha = .16; ctx.setLineDash([6, 6]);
+      ctx.beginPath(); ctx.arc(cx, cy, 1.86 * h, 0, Math.PI * 2); ctx.stroke(); ctx.setLineDash([]);
+      ctx.fillStyle = ink;
+      for (var i = 0; i < stars.length / 2; i++) {
+        var s = stars[i]; ctx.globalAlpha = .18 + s.a * .2;
+        ctx.beginPath(); ctx.arc(s.x, s.y, .8 + s.s * 1.4, 0, Math.PI * 2); ctx.fill();
+      }
+    } else {
+      ctx.fillStyle = '#ffffff';
+      for (var j = 0; j < stars.length; j++) {
+        var q = stars[j]; ctx.globalAlpha = .15 + q.a * .6;
+        ctx.beginPath(); ctx.arc(q.x, q.y, .3 + q.s * q.s * 1.2, 0, Math.PI * 2); ctx.fill();
+      }
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  function setTheme(t){ root.dataset.theme = t; draw(); }
+
+  document.getElementById('theme').addEventListener('click', function(){
+    chosen = true; setTheme(root.dataset.theme === 'light' ? 'dark' : 'light');
+  });
+  document.addEventListener('keydown', function(e){
+    if ((e.key === 't' || e.key === 'T') && !e.metaKey && !e.ctrlKey && !e.altKey) document.getElementById('theme').click();
+  });
+  mq.addEventListener('change', function(){ if (!chosen) setTheme(mq.matches ? 'light' : 'dark'); });
+  addEventListener('resize', draw);
+  draw();
+})();
+</script>
+</body>
+</html>
